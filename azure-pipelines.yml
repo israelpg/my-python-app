@@ -1,6 +1,11 @@
-- task: Docker@2
+- task: AzureRmWebAppDeployment@4
   inputs:
-    containerRegistry: 'Docker_Hub_israelpg'
-    repository: 'my-python-app-azure'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Azure for Students(835542e7-b20f-4409-9ba2-d93cbdc245ad)'
+    appType: 'webAppContainer'
+    WebAppName: 'dockerized-app'
+    deployToSlotOrASE: true
+    ResourceGroupName: 'ip14aai-resource-group-1'
+    SlotName: 'production'
+    DockerNamespace: 'dockerized-python-app'
+    DockerRepository: 'my-python-app'
